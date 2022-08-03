@@ -7,6 +7,16 @@ public class Produtos {
     int quantidade;
     String validade;
 
+    //Constructors
+    public Produtos(){}
+
+    public Produtos(String nomeDoProduto, double valor, int quantidade, String validade){
+        this.nomeDoProduto = nomeDoProduto;
+        this.valor = valor;
+        this.quantidade = quantidade;
+        this.validade = validade;
+    }
+
     //Getters and Setters
     public String getNomeDoProduto() {
         return nomeDoProduto;
