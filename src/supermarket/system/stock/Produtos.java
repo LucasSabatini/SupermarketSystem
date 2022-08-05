@@ -8,7 +8,9 @@ public class Produtos {
     String validade;
 
     //Constructors
-    public Produtos(){}
+    public Produtos(){
+
+    }
 
     public Produtos(String nomeDoProduto, double valor, int quantidade, String validade){
         this.nomeDoProduto = nomeDoProduto;
