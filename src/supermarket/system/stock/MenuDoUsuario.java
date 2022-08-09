@@ -41,18 +41,20 @@ public class MenuDoUsuario {
                     valor = Double.parseDouble(valorDigitado); //Converter o valor digitado de string para double
                     System.out.print("Digite a quantidade: ");
                     quantidade = sc.nextInt();
-                    sc.nextLine(); //Limpar o buffer do teclado
-                    System.out.print("Digite a data de validade: ");
-                    validade = sc.nextLine();
 
-                    novoProduto = new Produtos(nomeDoProduto, valor, quantidade, validade);
+                    novoProduto = new Produtos(nomeDoProduto, valor, quantidade);
 
                     novoEstoque.inserirProduto(novoProduto);
                 }
                 case 2 -> {
                     novoEstoque.listarProdutos();
                 }
-                case 3 -> System.out.println("Escolha um produto do seu estoque para alterar: ");
+                case 3 -> {
+                    novoEstoque.listarProdutos();
+                    System.out.print("\nDigite o nome do produto que você deseja alterar: ");
+                    String produtoDigitado = sc.nextLine();
+                    novoEstoque.alterarProduto(produtoDigitado);
+                }
                 case 4 -> System.out.println("Escolha um produto para excluir de seu estoque: ");
                 case 0 -> System.out.println("\nSaindo...");
                 default -> System.out.println("Opção inválida!");
