@@ -13,7 +13,6 @@ public class SuperMarketApp{
 
         Scanner sc = new Scanner(System.in); //Construção do objeto sc para utilizar dados de entrada via teclado
         MenuDoUsuario abrirMenu = new MenuDoUsuario(); //Instância que permite chamar o método para abrir o menu
-
         abrirMenu.openUserMenu(); //Chamada do método para abrir o menu
 
 

@@ -26,13 +26,14 @@ public class MenuDoUsuario {
             System.out.println("3 - Alterar um produto do estoque");
             System.out.println("4 - Excluir um produto do estoque");
             System.out.println("0 - Sair");
+            System.out.print("\nOpção desejada: ");
 
             opcao = sc.nextInt(); //Ler a opção do usuário
             sc.nextLine(); //Limpar o buffer do teclado
 
             switch (opcao) {
                 case 1 -> {
-                    System.out.println("Vamos cadastrar um novo produto!");
+                    System.out.println("\nVamos cadastrar um novo produto!");
                     System.out.print("Digite o nome: ");
                     nomeDoProduto = sc.nextLine();
                     System.out.print("Digite o valor: R$");
@@ -47,15 +48,43 @@ public class MenuDoUsuario {
                     novoEstoque.inserirProduto(novoProduto);
                 }
                 case 2 -> {
-                    novoEstoque.listarProdutos();
+                    if (novoEstoque.listaDeProdutos.isEmpty()) {
+                        System.out.println("\nLista vazia!");
+                        System.out.println("\nTecle Enter para continuar...");
+                        sc.nextLine();
+                    }
+                    else {
+                        novoEstoque.listarProdutos();
+                        System.out.println("\nTecle Enter para continuar...");
+                        sc.nextLine();
+                    }
                 }
                 case 3 -> {
-                    novoEstoque.listarProdutos();
-                    System.out.print("\nDigite o nome do produto que você deseja alterar: ");
-                    String produtoDigitado = sc.nextLine();
-                    novoEstoque.alterarProduto(produtoDigitado);
+                    if (novoEstoque.listaDeProdutos.isEmpty()) {
+                        System.out.println("\nLista vazia!");
+                        System.out.println("\nTecle Enter para continuar...");
+                        sc.nextLine();
+                    }
+                    else {
+                        novoEstoque.listarProdutos();
+                        System.out.print("\nDigite o nome do produto que você deseja alterar: ");
+                        String produtoDigitado = sc.nextLine();
+                        novoEstoque.alterarProduto(produtoDigitado);
+                    }
                 }
-                case 4 -> System.out.println("Escolha um produto para excluir de seu estoque: ");
+                case 4 -> {
+                    if (novoEstoque.listaDeProdutos.isEmpty()) {
+                        System.out.println("\nLista vazia!");
+                        System.out.println("\nTecle Enter para continuar...");
+                        sc.nextLine();
+                    }
+                    else {
+                        novoEstoque.listarProdutos();
+                        System.out.print("\nDigite o nome do produto para excluir de seu estoque: ");
+                        String deletarProduto = sc.nextLine();
+                        novoEstoque.excluirProduto(deletarProduto);
+                    }
+                }
                 case 0 -> System.out.println("\nSaindo...");
                 default -> System.out.println("Opção inválida!");
             }
