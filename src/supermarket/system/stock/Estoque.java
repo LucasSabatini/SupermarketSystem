@@ -1,6 +1,5 @@
 package supermarket.system.stock;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -27,7 +26,7 @@ public class Estoque {
 
     public void alterarProduto(String buscarProduto) {
         for (Produtos buscador : listaDeProdutos) {
-            if (buscador.nomeDoProduto.equals(buscarProduto)) {
+            if (buscador.getNomeDoProduto().equals(buscarProduto)) {
                 System.out.println("\nEncontrado!");
                 System.out.println("Digite os novos dados do produto");
                 System.out.print("\nNome do produto: ");
@@ -51,7 +50,7 @@ public class Estoque {
     public void excluirProduto(String deleteProduct) {
         boolean comparador = false;
         for (Produtos buscador : listaDeProdutos) {
-            if (buscador.nomeDoProduto.equals(deleteProduct)) { //Se o produto digitado existir na lista, comparador = 'true'
+            if (buscador.getNomeDoProduto().equals(deleteProduct)) { //Se o produto digitado existir na lista, comparador = 'true'
                 comparador = true;
             }
             else {
@@ -70,7 +69,7 @@ public class Estoque {
             sc.nextLine();
             switch (opcao) {
                 case 1 -> {
-                    listaDeProdutos.removeIf(prod -> prod.nomeDoProduto.equals(deleteProduct));
+                    listaDeProdutos.removeIf(prod -> prod.getNomeDoProduto().equals(deleteProduct));
                     System.out.println("\nProduto excluído!");
                 }
                 case 2 -> {

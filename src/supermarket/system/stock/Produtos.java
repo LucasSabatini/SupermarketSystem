@@ -2,9 +2,9 @@ package supermarket.system.stock;
 
 public class Produtos {
 
-    String nomeDoProduto;
-    double valor;
-    int quantidade;
+    private String nomeDoProduto;
+    private double valor;
+    private int quantidade;
 
     //Constructors
     public Produtos(){
@@ -43,8 +43,8 @@ public class Produtos {
     }
 
     public void criarListaDeProdutos(){
-        System.out.println("\nProduto: " + this.nomeDoProduto);
-        System.out.printf("Valor: R$%.2f", this.valor);
-        System.out.println("\nQuantidade: " + this.quantidade);
+        System.out.println("\nProduto: " + this.getNomeDoProduto());
+        System.out.printf("Valor: R$%.2f", this.getValor());
+        System.out.println("\nQuantidade: " + this.getQuantidade());
     }
 }
